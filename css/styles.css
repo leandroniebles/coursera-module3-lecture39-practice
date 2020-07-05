@@ -3,6 +3,7 @@ body {
 	color: #fff;
 	background-color: #61122f;
 	font-family: 'Oxygen', sans-serif;
+	line-height: 1.42857143; /* Fix for Bootstrap 4.5 */
 }
 
 /** HEADER **/
@@ -10,18 +11,28 @@ body {
 	background-color: #f6b319;
 	border-radius: 0;
 	border: 0;
+	padding: 0; /* Fix for Bootstrap 4.5 */
+	margin-bottom: 20px; /* navbar style from old versions of Boostrap */
 }
 
 #logo-img {
-	background: url('../images/restaurant-logo_large.png') no-repeat;
+	background: url('../images/restaurant-logo_large.png');
 	width: 150px;
 	height: 150px;
 	margin: 10px 15px 10px 0;
 }
 
 .navbar-brand {
+	padding: 15px 15px; /* navbar style from old versions of Boostrap */
 	padding-top: 25px;
+	padding-right: 5px; /* Fix for Bootstrap 4.5 */
+	height: 50px; /* navbar style from old versions of Boostrap */
+	line-height: 20px; /* navbar style from old versions of Boostrap */
+	margin-left: -15px; /* navbar style from old versions of Boostrap */
+	font-size: 18px;  /* navbar style from old versions of Boostrap */
+	margin-right: 0px; /* Fix for Bootstrap 4.5 */
 }
+
 .navbar-brand h1 { /* Restaurant name */
 	font-family: 'Lora', serif;
 	color: #557c3e;
@@ -46,17 +57,21 @@ body {
 	vertical-align: middle;
 }
 
-#nav-list {
-	margin-top: 10px; 
+#nav-list { /* OK */
+	margin-top: 10px;
 }
-#nav-list a {
+#nav-list li.nav-item.active {
+	background-color: #E7E7E7; /* Color fix for active navs */
+}
+#nav-list a { /* OK */
 	color: #951C49;
 	text-align: center;
+	padding: 15px; /* Fix for Bootstrap 4.5 */
 }
-#nav-list a:hover {
+#nav-list a:hover { /* OK */
 	background: #E7E7E7;
 }
-#nav-list a span {
+#nav-list a span { /* OK */
 	font-size: 1.8em;
 }
 
@@ -66,6 +81,7 @@ body {
 #phone a { /* Phone number */
 	text-align: right;
 	padding-bottom: 0;
+	line-height: 1.1em; /* Fix for Bootstrap 4.5 */
 }
 #phone div { /* We Deliver */
 	color: #557c3e;
@@ -73,24 +89,37 @@ body {
 	padding-right: 15px;
 }
 
-.navbar-header button.navbar-toggle, .navbar-header .icon-bar {
+.navbar-header button.navbar-toggler, .navbar-header .icon-bar {
 	border: 1px solid #61122f;
 }
-.navbar-header button.navbar-toggle {
-	clear: both;
+.navbar-header button.navbar-toggler {	
 	margin-top: -30px;
+	/*margin-right: 15px;   Fix for Bootstrap 4.5 */
+	margin-bottom: 8px;  /* Fix for Bootstrap 4.5 */
+	clear: both;
+}
+.navbar-header button.navbar-toggler span.fa-bars { /* Fix for Bootstrap 4.5 */
+	color: #61122f;
+	font-size: 1.2em;
+}
+.navbar-header button.navbar-toggler:hover, .navbar-header button.navbar-toggler:active, 
+.navbar-header button.navbar-toggler:focus{ /* Fix for Bootstrap 4.5 */
+	background: #E7E7E7;
+}
+.navbar-header button.navbar-toggler:focus{ /* Fix for Bootstrap 4.5 */
+	outline: none;
 }
 /* END HEADER */
 
 /* FOOTER */
-.panel-footer {
+.card-footer { /* Fix for Bootstrap 4.5: .panel-footer must be replaced by .card-footer */
 	margin-top: 30px;
 	padding-top: 35px;
 	padding-bottom: 30px;
 	background-color: #222;
 	border-top: 0;
 }
-.panel-footer div.row {
+.card-footer div.row { /* Fix for Bootstrap 4.5: .panel-footer must be replaced by .card-footer */
 	margin-bottom: 35px;
 }
 #hours, #address {
@@ -112,10 +141,8 @@ body {
 }
 /* END FOOTER*/
 
-
-
 /* HOME PAGE */
-.container .jumbotron {
+.container-md .jumbotron { /* Fix for Bootstrap 4.5: Change container to container-md */
 	box-shadow: 0 0 50px #3F0C1F;
 	border: 2px solid #3F0C1F;
 }
@@ -131,6 +158,7 @@ body {
 #menu-tile:hover, #specials-tile:hover, #map-tile:hover {
 	box-shadow: 0 1px 5px 1px #cccccc;
 }
+
 #menu-tile {
 	background: url('../images/menu-tile.jpg') no-repeat;
 	background-position: center;
@@ -139,6 +167,7 @@ body {
 	background: url('../images/specials-tile.jpg') no-repeat;
 	background-position: center;
 }
+
 #menu-tile span, #specials-tile span, #map-tile span {
 	position: absolute;
 	bottom: 0;
@@ -178,6 +207,12 @@ body {
 	box-shadow: 0 1px 5px 1px #cccccc;
 }
 
+#menu-categories-title { 
+	font-size: 30px; /* h2 style from old Bootstrap versions */
+	line-height: 1.1; /* h2 style from old Bootstrap versions */
+	margin-top: 40px; /* Fix for Bootstrap 4.5 */
+	margin-bottom: 10px; /* h2 style from old Bootstrap versions */
+}
 #menu-categories-title + div {
 	margin-bottom: 50px;
 }
@@ -229,10 +264,9 @@ h3.menu-item-title {
 }
 /* END SINGLE CATEGORY PAGE */
 
-
 /********** Large devices only **********/
 @media (min-width: 1200px) {
-	.container .jumbotron {
+	.container-md .jumbotron { /* Fix for Bootstrap 4.5: Change container to container-md */
 		background: url('../images/jumbotron_1200.jpg') no-repeat;
 		height: 675px;
 	}
@@ -250,7 +284,7 @@ h3.menu-item-title {
 	/* End Header */
 
 	/* Home Page */
-	.container .jumbotron {
+	.container-md .jumbotron { /* Fix for Bootstrap 4.5: Change container to container-md */
 		background: url('../images/jumbotron_992.jpg') no-repeat;
 		height: 558px;
 	}
@@ -260,7 +294,7 @@ h3.menu-item-title {
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
 	/* Home Page */
-	.container .jumbotron {
+	.container-md .jumbotron { /* Fix for Bootstrap 4.5: Change container to container-md */
 		background: url('../images/jumbotron_768.jpg') no-repeat;
 		height: 432px;
 	}
@@ -270,6 +304,12 @@ h3.menu-item-title {
 /********** Extra small devices only **********/
 @media (max-width: 767px) {
 	/* Header */
+	.navbar-header { /* Fix for Bootstrap 4.5 */
+		width: 100% !important;
+		padding-left: 15px; /* Fix for Bootstrap 4.5 */
+		padding-right: 15px; /* Fix for Bootstrap 4.5 */
+	}
+
 	.navbar-brand {
 		padding-top: 10px;
 		height: 80px;
@@ -285,7 +325,10 @@ h3.menu-item-title {
 	.navbar-brand p img { /* Star-K */
 		height: 20px;
 	}
-
+	
+	#collapsable-nav { /* Fix for Bootstrap 4.5 */
+		width: 100% !important;
+	}
 	#collapsable-nav a { /* Collapsed nav menu glyph */
 		font-size: 1.2em;
 	}
@@ -294,7 +337,7 @@ h3.menu-item-title {
 		margin-right: 5px;
 	}
 
-  #call-btn > a {
+	#call-btn > a {
     font-size: 1.5em;
     display: block;
     margin: 0 20px;
@@ -312,28 +355,32 @@ h3.menu-item-title {
   /* End Header */
 
   /* Footer */
-  .panel-footer section {
+  .card-footer section { /* Fix for Bootstrap 4.5: .panel-footer must be replaced by .card-footer */
   	margin-bottom: 30px;
   	text-align: center;
   }
-  .panel-footer section:nth-child(3) {
+  .card-footer section:nth-child(3) { /* Fix for Bootstrap 4.5: .panel-footer must be replaced by .card-footer */
 		margin-bottom: 0 /* margin already exists on the whole row */
   }
-  .panel-footer section hr {
+  .card-footer section hr { /* Fix for Bootstrap 4.5: .panel-footer must be replaced by .card-footer */
   	width: 50%;
+  	border-top: 1px solid #eee; /* Fix for Bootstrap 4.5 */
   }
   /* End Footer */
 
   /* Home Page */
-  .container .jumbotron {
+  .container-md .jumbotron { /* Fix for Bootstrap 4.5: Change container to container-md */
 		margin-top: 30px;
 		padding: 0;
 	}
+
 	#menu-tile, #specials-tile {
 		width: 360px;
 		margin: 0 auto 15px;
 	}
-
+  /* End Home Page */
+	
+	/* Single Menu Category Page */
 	.menu-item-photo {
 		margin-right: auto;
 	}
@@ -343,8 +390,8 @@ h3.menu-item-title {
 	.menu-item-description {
 		text-align: center;
 	}
+	/* End Single Menu Category Page */
 }
-
 
 /********** Super extra small devices only :-) (e.g., iPhone 4) **********/
 @media (max-width: 479px) {
@@ -361,7 +408,8 @@ h3.menu-item-title {
 		margin: 0 auto 15px;
 	}
 
-	.col-xxs-12 {
+	.col-xxs-12 { /* This custom class was used as a fix in the lecture video, 
+		but this should no longer be needed in Bootstrap 4.5 */
 		position: relative;
 	  min-height: 1px;
 	  padding-right: 15px;
@@ -370,4 +418,3 @@ h3.menu-item-title {
 	  width: 100%;
 	}
 }
-
